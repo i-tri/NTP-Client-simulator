@@ -31,3 +31,22 @@ To install the required Python libraries, run:
 
 ```bash
 pip install ntplib matplotlib numpy
+
+
+## Screenshots
+
+### GUI Interface
+![GUI Interface](./screenshots/Screenshot 1.png)
+
+### Required Fields 
+![Required Fields](./screenshots/Screenshot 2.png)
+
+### NTP Response Times
+![NTP Response Times](./screenshots/Screenshot 3.png)
+
+### Number of Responses per Sensor
+![Number of Responses per Sensor](./screenshots/Screenshot 4.png)
+
+### Average Response Time per Sensor
+![Average Response Time per Sensor](./screenshots/Screenshot 5.png)
+
