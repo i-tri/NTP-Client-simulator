@@ -33,10 +33,7 @@ To install the required Python libraries, run:
 pip install ntplib matplotlib numpy
 
 
-## Screenshots
 
-### GUI Interface
-![GUI Interface](./screenshots/Screenshot 1.png)
 <img width="959" alt="Screenshot 1" src="https://github.com/user-attachments/assets/0373673f-6584-4450-9d05-e5d5297d3b4f">
 
 ### Required Fields 
