@@ -73,26 +73,23 @@ def update_graphs():
         ax1.set_title('NTP Response Times')
         ax1.set_xlabel('Request Number')
         ax1.set_ylabel('Response Time (Unix Timestamp)')
-        ax1.legend(loc='upper right')
+        #ax1.legend(loc='upper right')
 
         response_counts_times = [response_counts[i] for i in range(1, len(sensor_data) + 1)]
-        ax2.bar(range(1, len(sensor_data) + 1), response_counts_times, color='c',
-                tick_label=[f'Sensor {i}' for i in range(1, len(sensor_data) + 1)])
+        ax2.bar(range(1, len(sensor_data) + 1), response_counts_times, color='c')
 
         ax2.set_title('Number of Responses per Sensor')
-        ax2.set_xlabel('Sensor ID')
+        ax2.set_xlabel('Sensors')
         ax2.set_ylabel('Number of Responses')
-        ax2.tick_params(axis='x', labelrotation=90)
+        ax2.set_xticks([])  # Remove individual labels
 
-        avg_response_times = [np.mean(sensor_data[i]) if len(sensor_data[i]) > 0 else 0 for i in
-                              range(1, len(sensor_data) + 1)]
-        ax3.bar(range(1, len(sensor_data) + 1), avg_response_times, color='m',
-                tick_label=[f'Sensor {i}' for i in range(1, len(sensor_data) + 1)])
+        avg_response_times = [np.mean(sensor_data[i]) if len(sensor_data[i]) > 0 else 0 for i in range(1, len(sensor_data) + 1)]
+        ax3.bar(range(1, len(sensor_data) + 1), avg_response_times, color='m')
 
         ax3.set_title('Average Response Time per Sensor')
-        ax3.set_xlabel('Sensor ID')
+        ax3.set_xlabel('Sensors')
         ax3.set_ylabel('Average Response Time (Unix Timestamp)')
-        ax3.tick_params(axis='x', labelrotation=90)
+        ax3.set_xticks([])  # Remove individual labels
 
         canvas.draw()
 
@@ -141,7 +138,7 @@ tk.Label(root, text="NTP Server IP:").grid(row=0, column=0, padx=10, pady=10)
 entry_server = tk.Entry(root)
 entry_server.grid(row=0, column=1, padx=10, pady=10)
 
-tk.Label(root, text="Number of Sensors:").grid(row=1, column=0, padx=10, pady=10)
+tk.Label(root, text="Number of Sensors (NTP Clients):").grid(row=1, column=0, padx=10, pady=10)
 entry_sensors = tk.Entry(root)
 entry_sensors.grid(row=1, column=1, padx=10, pady=10)
 
@@ -164,7 +161,7 @@ frame = tk.Frame(root)
 frame.grid(row=6, columnspan=2, padx=10, pady=10, sticky="nsew")
 
 # Create matplotlib figure and axes
-fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(14, 18), dpi=100)
+fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(14, 18), dpi=100)
 ax1.set_title('NTP Response Times')
 ax1.set_xlabel('Request Number')
 ax1.set_ylabel('Response Time (Unix Timestamp)')
